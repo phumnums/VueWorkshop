@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -34,7 +35,22 @@ const routes = [
         path: '/',
         name: 'home',
         component: () => import('../views/HomeView.vue')
-      }
+      },
+      {
+        path: '/new',
+        name: 'new',
+        component: () => import('../views/new.vue')
+      },
+      {
+        path: '/grade',
+        name: 'grade',
+        component: () => import('../views/Grade.vue')
+      },
+      {
+        path: '/simple',
+        name: 'simple',
+        component: () => import('../views/simple.vue')
+      },
     ]
   }
 ]

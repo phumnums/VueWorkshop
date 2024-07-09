@@ -13,9 +13,11 @@
 
         <v-card-text class="text-description">
           <div class="text-education">
-            <p>Education: Bachelor of Computer Engineering,<br />
-               Prince of Songkla University</p>
-            
+            <p>
+              Education: Bachelor of Computer Engineering,<br />
+              Prince of Songkla University
+            </p>
+
             <p>Hobbies: Listening to music, Singing, Drawing</p>
             <p>Likes: Delicious food</p>
             <p>Dislikes: Snakes and garlic</p>
