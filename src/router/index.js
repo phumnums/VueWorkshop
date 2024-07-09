@@ -11,9 +11,9 @@ const routes = [
     component: Login
   },
   {
-      path: '/testaboutme',
-      name: 'testaboutme',
-      component: () => import('../views/TestAboutMe.vue')
+      path: '/aboutme',
+      name: 'aboutme',
+      component: () => import('../views/AboutMe.vue')
   },
   {
     path: '',
@@ -25,12 +25,6 @@ const routes = [
         name: 'me',
         component: () => import('../views/Me.vue')
       },
-      {
-        path: '/aboutme',
-        name: 'aboutme',
-        component: () => import('../views/AboutMe.vue')
-      },
-      
       {
         path: '/about',
         name: 'about',
