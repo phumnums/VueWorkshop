@@ -1,32 +1,30 @@
 <template>
+
   <div class="input">
+    <v-form ref="form" v-model="validate">
+      <v-flex >
+        <v-text-field
+          v-model="studentID"
+          label="Student ID"
+          id="studentID"
+          :rules="studentIDRule"
+          required
+        >
+        </v-text-field>
+      </v-flex>
 
-    <v-form 
-    ref="form"
-    v-model="valid">
+      <v-flex>
+        <v-text-field
+          v-model="score"
+          label="Score"
+          id="score"
+          :rules="scoreRule"
+        >
+        </v-text-field>
+      </v-flex>
 
-    <v-flex>
-      <v-text-field 
-      v-model="studentID" 
-      label="Student ID" 
-      id="studentID"
-      :rules="studentIDRule"
-      required>
-      </v-text-field>
-    </v-flex>
-
-    <v-flex>
-      <v-text-field 
-      v-model="score" 
-      label="Score" 
-      id="score"
-      :rules="scoreRule">
-      
-      </v-text-field>
-    </v-flex>
-
-    <v-btn @click="display">calculate</v-btn>
-</v-form>
+      <v-btn style="margin-top: 20px" @click="display">calculate</v-btn>
+    </v-form>
   </div>
 </template>
 
@@ -40,13 +38,13 @@ export default {
       alert: false,
       alertMsg: "",
       studentIDRule: [
-        v => !!v || "Student ID is required",
-        v => !isNaN(v) || "Student ID must be a number"
+        (v) => !!v || "Student ID is required",
+        (v) => !isNaN(v) || "Student ID must be a number",
       ],
       scoreRule: [
-        v => !!v || "Score must be a number",
-        v => (v >= 0 && v <= 100) || "Score must be between 0 and 100"
-      ]
+        (v) => !!v || "Score must be a number",
+        (v) => (v >= 0 && v <= 100) || "Score must be between 0 and 100",
+      ],
     };
   },
 
@@ -54,9 +52,9 @@ export default {
     validate() {
       if (this.$refs.form.validate()) {
         this.snackbar = true;
-      }else {
-        this.alert = true
-        this.alertMsg = "Please fill in the form"
+      } else {
+        this.alert = true;
+        this.alertMsg = "Please fill in the form";
       }
     },
 

@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Welcome to Simple</h1>
+    
     <h1 v-if="show">{{ name }} za</h1>
     <v-btn color="success" @click="show = !show">switch</v-btn>
 
@@ -8,14 +9,17 @@
       <v-col cols="3" v-for="(item, index) in datacat" :key="index">
         <v-card width="350">
           <v-img width="350" :src="item.imglink"></v-img>
+
           <v-card-title primary-title>
             {{ item.name }}
           </v-card-title>
+
           <v-card-action>
             <v-btn color="success" @click="AlertParam(item.name)">
                 callname
             </v-btn>
           </v-card-action>
+          
         </v-card>
       </v-col>
 
@@ -26,11 +30,14 @@
         <v-btn color="success" @click="AlertParam(value1)">alert</v-btn>
       </v-col>
     </v-row>
+    <propstest :name="name" @AlertName="AlertName"/>
   </div>
 </template>
 
 <script>
+import Propstest from '../components/Propstest.vue';
 export default {
+  components: { Propstest },
   data() {
     return {
       name: "hello",
@@ -48,6 +55,12 @@ export default {
       ],
       value1: "",
     };
+  },
+  mounted() {
+    Event.$on('CALLAlert', this.AlertParam)
+  },
+  beforeDestroy() {
+    Event.$off('CALLAlert', this.AlertParam)
   },
   methods: {
     AlertName() {
